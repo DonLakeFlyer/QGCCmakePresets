@@ -1,0 +1,76 @@
+{
+  "version": 6,
+  "include": [
+    "cmake/presets/macOS.json",
+    "cmake/presets/Linux.json",
+    "cmake/presets/Android.json"
+  ],
+  "configurePresets": [
+    {
+      "name": "don-mac-debug",
+      "displayName": "Don: Mac Debug",
+      "inherits": ["macOS-debug"],
+      "toolchainFile": "/Users/don/Qt/6.11.1/macos/lib/cmake/Qt6/qt.toolchain.cmake"
+    },
+    {
+      "name": "don-mac-release",
+      "displayName": "Don: Mac Release",
+      "inherits": ["macOS"],
+      "toolchainFile": "/Users/don/Qt/6.11.1/macos/lib/cmake/Qt6/qt.toolchain.cmake"
+    },
+    {
+      "name": "don-linux-debug",
+      "displayName": "Don: Linux Debug",
+      "inherits": ["Linux-debug"],
+      "toolchainFile": "$env{HOME}/Qt/6.11.1/gcc_64/lib/cmake/Qt6/qt.toolchain.cmake"
+    },
+    {
+      "name": "don-linux-release",
+      "displayName": "Don: Linux Release",
+      "inherits": ["Linux"],
+      "toolchainFile": "$env{HOME}/Qt/6.11.1/gcc_64/lib/cmake/Qt6/qt.toolchain.cmake"
+    },
+    {
+      "name": "don-android-debug",
+      "displayName": "Don: Android Debug",
+      "inherits": ["Android-debug"],
+      "binaryDir": "${sourceDir}/build-android-debug",
+      "toolchainFile": "/Users/don/Qt/6.11.1/android_arm64_v8a/lib/cmake/Qt6/qt.toolchain.cmake",
+      "cacheVariables": {
+        "CMAKE_SYSTEM_VERSION": "28",
+        "ANDROID_PLATFORM": "android-28",
+        "ANDROID_NDK_ROOT": "/Users/don/Library/Android/sdk/ndk/27.2.12479018",
+        "ANDROID_SDK_ROOT": "/Users/don/Library/Android/sdk",
+        "CMAKE_PREFIX_PATH": "/Users/don/Qt/6.11.1/android_arm64_v8a",
+        "QT_HOST_PATH": "/Users/don/Qt/6.11.1/macos"
+      }
+    },
+    {
+      "name": "don-android-release",
+      "displayName": "Don: Android Release",
+      "inherits": ["Android"],
+      "binaryDir": "${sourceDir}/build-android",
+      "toolchainFile": "/Users/don/Qt/6.11.1/android_arm64_v8a/lib/cmake/Qt6/qt.toolchain.cmake",
+      "cacheVariables": {
+        "CMAKE_SYSTEM_VERSION": "28",
+        "ANDROID_PLATFORM": "android-28",
+        "ANDROID_NDK_ROOT": "/Users/don/Library/Android/sdk/ndk/27.2.12479018",
+        "ANDROID_SDK_ROOT": "/Users/don/Library/Android/sdk",
+        "CMAKE_PREFIX_PATH": "/Users/don/Qt/6.11.1/android_arm64_v8a",
+        "QT_HOST_PATH": "/Users/don/Qt/6.11.1/macos"
+      }
+    }
+  ],
+  "buildPresets": [
+    { "name": "don-mac-debug", "configurePreset": "don-mac-debug", "inherits": ["default"] },
+    { "name": "don-mac-release", "configurePreset": "don-mac-release", "inherits": ["default"] },
+    { "name": "don-linux-debug", "configurePreset": "don-linux-debug", "inherits": ["default"] },
+    { "name": "don-linux-release", "configurePreset": "don-linux-release", "inherits": ["default"] },
+    { "name": "don-android-debug", "configurePreset": "don-android-debug", "inherits": ["default"] },
+    { "name": "don-android-release", "configurePreset": "don-android-release", "inherits": ["default"] }
+  ],
+  "testPresets": [
+    { "name": "don-mac-debug", "configurePreset": "don-mac-debug", "inherits": ["default"] },
+    { "name": "don-linux-debug", "configurePreset": "don-linux-debug", "inherits": ["default"] }
+  ]
+}
