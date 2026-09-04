@@ -7,33 +7,43 @@
   ],
   "configurePresets": [
     {
+      "name": "don-base",
+      "hidden": true,
+      "cacheVariables": {
+        "CPM_SOURCE_CACHE": {
+          "type": "PATH",
+          "value": "$env{HOME}/repos/cpm_source_cache"
+        }
+      }
+    },
+    {
       "name": "don-mac-debug",
       "displayName": "Don: Mac Debug",
-      "inherits": ["macOS-debug"],
+      "inherits": ["macOS-debug", "don-base"],
       "toolchainFile": "/Users/don/Qt/6.11.1/macos/lib/cmake/Qt6/qt.toolchain.cmake"
     },
     {
       "name": "don-mac-release",
       "displayName": "Don: Mac Release",
-      "inherits": ["macOS"],
+      "inherits": ["macOS", "don-base"],
       "toolchainFile": "/Users/don/Qt/6.11.1/macos/lib/cmake/Qt6/qt.toolchain.cmake"
     },
     {
       "name": "don-linux-debug",
       "displayName": "Don: Linux Debug",
-      "inherits": ["Linux-debug"],
+      "inherits": ["Linux-debug", "don-base"],
       "toolchainFile": "$env{HOME}/Qt/6.11.1/gcc_64/lib/cmake/Qt6/qt.toolchain.cmake"
     },
     {
       "name": "don-linux-release",
       "displayName": "Don: Linux Release",
-      "inherits": ["Linux"],
+      "inherits": ["Linux", "don-base"],
       "toolchainFile": "$env{HOME}/Qt/6.11.1/gcc_64/lib/cmake/Qt6/qt.toolchain.cmake"
     },
     {
       "name": "don-android-debug",
       "displayName": "Don: Android Debug",
-      "inherits": ["Android-debug"],
+      "inherits": ["Android-debug", "don-base"],
       "binaryDir": "${sourceDir}/build-android-debug",
       "toolchainFile": "/Users/don/Qt/6.11.1/android_arm64_v8a/lib/cmake/Qt6/qt.toolchain.cmake",
       "cacheVariables": {
@@ -48,7 +58,7 @@
     {
       "name": "don-android-release",
       "displayName": "Don: Android Release",
-      "inherits": ["Android"],
+      "inherits": ["Android", "don-base"],
       "binaryDir": "${sourceDir}/build-android",
       "toolchainFile": "/Users/don/Qt/6.11.1/android_arm64_v8a/lib/cmake/Qt6/qt.toolchain.cmake",
       "cacheVariables": {
@@ -62,12 +72,23 @@
     }
   ],
   "buildPresets": [
-    { "name": "don-mac-debug", "configurePreset": "don-mac-debug", "inherits": ["default"] },
-    { "name": "don-mac-release", "configurePreset": "don-mac-release", "inherits": ["default"] },
-    { "name": "don-linux-debug", "configurePreset": "don-linux-debug", "inherits": ["default"] },
-    { "name": "don-linux-release", "configurePreset": "don-linux-release", "inherits": ["default"] },
-    { "name": "don-android-debug", "configurePreset": "don-android-debug", "inherits": ["default"] },
-    { "name": "don-android-release", "configurePreset": "don-android-release", "inherits": ["default"] }
+    {
+      "name": "don-build-base",
+      "hidden": true,
+      "inherits": ["default"],
+      "environment": {
+        "CCACHE_DIR": "$env{HOME}/repos/ccache_cache",
+        "MOCCACHE_DIR": "$env{HOME}/repos/moccache_cache",
+        "MOCCACHE_MAX_SIZE": "1G",
+        "MOCCACHE_STATS": "1"
+      }
+    },
+    { "name": "don-mac-debug", "configurePreset": "don-mac-debug", "inherits": ["don-build-base"] },
+    { "name": "don-mac-release", "configurePreset": "don-mac-release", "inherits": ["don-build-base"] },
+    { "name": "don-linux-debug", "configurePreset": "don-linux-debug", "inherits": ["don-build-base"] },
+    { "name": "don-linux-release", "configurePreset": "don-linux-release", "inherits": ["don-build-base"] },
+    { "name": "don-android-debug", "configurePreset": "don-android-debug", "inherits": ["don-build-base"] },
+    { "name": "don-android-release", "configurePreset": "don-android-release", "inherits": ["don-build-base"] }
   ],
   "testPresets": [
     { "name": "don-mac-debug", "configurePreset": "don-mac-debug", "inherits": ["default"] },
