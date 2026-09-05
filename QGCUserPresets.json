@@ -31,14 +31,20 @@
     {
       "name": "don-linux-debug",
       "displayName": "Don: Linux Debug",
-      "inherits": ["Linux-debug", "don-base"],
-      "toolchainFile": "$env{HOME}/Qt/6.11.1/gcc_64/lib/cmake/Qt6/qt.toolchain.cmake"
+      "inherits": ["Linux-arm64-debug", "don-base"],
+      "toolchainFile": "$env{HOME}/Qt/6.11.1/gcc_arm64/lib/cmake/Qt6/qt.toolchain.cmake",
+      "cacheVariables": {
+        "QT_HOST_PATH": "$env{HOME}/Qt/6.11.1/gcc_arm64"
+      }
     },
     {
       "name": "don-linux-release",
       "displayName": "Don: Linux Release",
-      "inherits": ["Linux", "don-base"],
-      "toolchainFile": "$env{HOME}/Qt/6.11.1/gcc_64/lib/cmake/Qt6/qt.toolchain.cmake"
+      "inherits": ["Linux-arm64", "don-base"],
+      "toolchainFile": "$env{HOME}/Qt/6.11.1/gcc_arm64/lib/cmake/Qt6/qt.toolchain.cmake",
+      "cacheVariables": {
+        "QT_HOST_PATH": "$env{HOME}/Qt/6.11.1/gcc_arm64"
+      }
     },
     {
       "name": "don-android-debug",
