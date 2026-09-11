@@ -29,6 +29,16 @@
       "toolchainFile": "/Users/don/Qt/6.11.1/macos/lib/cmake/Qt6/qt.toolchain.cmake"
     },
     {
+      "name": "don-mac-coverage",
+      "displayName": "Don: Mac Coverage",
+      "inherits": ["coverage", "macos-base", "don-base"],
+      "binaryDir": "${sourceDir}/build/macOS-coverage",
+      "toolchainFile": "/Users/don/Qt/6.11.1/macos/lib/cmake/Qt6/qt.toolchain.cmake",
+      "cacheVariables": {
+        "LLVM_COV_PATH": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/llvm-cov"
+      }
+    },
+    {
       "name": "don-linux-debug",
       "displayName": "Don: Linux Debug",
       "inherits": ["Linux-arm64-debug", "don-base"],
@@ -91,6 +101,7 @@
     },
     { "name": "don-mac-debug", "configurePreset": "don-mac-debug", "inherits": ["don-build-base"] },
     { "name": "don-mac-release", "configurePreset": "don-mac-release", "inherits": ["don-build-base"] },
+    { "name": "don-mac-coverage", "configurePreset": "don-mac-coverage", "inherits": ["don-build-base"] },
     { "name": "don-linux-debug", "configurePreset": "don-linux-debug", "inherits": ["don-build-base"] },
     { "name": "don-linux-release", "configurePreset": "don-linux-release", "inherits": ["don-build-base"] },
     { "name": "don-android-debug", "configurePreset": "don-android-debug", "inherits": ["don-build-base"] },
@@ -98,6 +109,7 @@
   ],
   "testPresets": [
     { "name": "don-mac-debug", "configurePreset": "don-mac-debug", "inherits": ["default"] },
+    { "name": "don-mac-coverage", "configurePreset": "don-mac-coverage", "inherits": ["default"] },
     { "name": "don-linux-debug", "configurePreset": "don-linux-debug", "inherits": ["default"] }
   ]
 }
