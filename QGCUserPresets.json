@@ -95,7 +95,7 @@
       "environment": {
         "CCACHE_DIR": "$env{HOME}/repos/ccache_cache",
         "MOCCACHE_DIR": "$env{HOME}/repos/moccache_cache",
-        "MOCCACHE_MAX_SIZE": "1G",
+        "MOCCACHE_MAX_SIZE": "2G",
         "MOCCACHE_STATS": "1"
       }
     },
