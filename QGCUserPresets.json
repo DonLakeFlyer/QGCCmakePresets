@@ -20,19 +20,21 @@
       "name": "don-mac-debug",
       "displayName": "Don: Mac Debug",
       "inherits": ["macOS-debug", "don-base"],
+      "binaryDir": "${sourceDir}/build/don-mac-debug",
       "toolchainFile": "/Users/don/Qt/6.11.1/macos/lib/cmake/Qt6/qt.toolchain.cmake"
     },
     {
       "name": "don-mac-release",
       "displayName": "Don: Mac Release",
       "inherits": ["macOS", "don-base"],
+      "binaryDir": "${sourceDir}/build/don-mac-release",
       "toolchainFile": "/Users/don/Qt/6.11.1/macos/lib/cmake/Qt6/qt.toolchain.cmake"
     },
     {
       "name": "don-mac-coverage",
       "displayName": "Don: Mac Coverage",
       "inherits": ["coverage", "macos-base", "don-base"],
-      "binaryDir": "${sourceDir}/build/macOS-coverage",
+      "binaryDir": "${sourceDir}/build/don-mac-coverage",
       "toolchainFile": "/Users/don/Qt/6.11.1/macos/lib/cmake/Qt6/qt.toolchain.cmake",
       "cacheVariables": {
         "LLVM_COV_PATH": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/llvm-cov"
@@ -42,6 +44,7 @@
       "name": "don-linux-debug",
       "displayName": "Don: Linux Debug",
       "inherits": ["Linux-arm64-debug", "don-base"],
+      "binaryDir": "${sourceDir}/build/don-linux-debug",
       "toolchainFile": "$env{HOME}/Qt/6.11.1/gcc_arm64/lib/cmake/Qt6/qt.toolchain.cmake",
       "cacheVariables": {
         "QT_HOST_PATH": "$env{HOME}/Qt/6.11.1/gcc_arm64"
@@ -51,6 +54,7 @@
       "name": "don-linux-release",
       "displayName": "Don: Linux Release",
       "inherits": ["Linux-arm64", "don-base"],
+      "binaryDir": "${sourceDir}/build/don-linux-release",
       "toolchainFile": "$env{HOME}/Qt/6.11.1/gcc_arm64/lib/cmake/Qt6/qt.toolchain.cmake",
       "cacheVariables": {
         "QT_HOST_PATH": "$env{HOME}/Qt/6.11.1/gcc_arm64"
@@ -60,7 +64,7 @@
       "name": "don-android-debug",
       "displayName": "Don: Android Debug",
       "inherits": ["Android-debug", "don-base"],
-      "binaryDir": "${sourceDir}/build-android-debug",
+      "binaryDir": "${sourceDir}/build/don-android-debug",
       "toolchainFile": "/Users/don/Qt/6.11.1/android_arm64_v8a/lib/cmake/Qt6/qt.toolchain.cmake",
       "cacheVariables": {
         "CMAKE_SYSTEM_VERSION": "28",
@@ -75,7 +79,7 @@
       "name": "don-android-release",
       "displayName": "Don: Android Release",
       "inherits": ["Android", "don-base"],
-      "binaryDir": "${sourceDir}/build-android",
+      "binaryDir": "${sourceDir}/build/don-android-release",
       "toolchainFile": "/Users/don/Qt/6.11.1/android_arm64_v8a/lib/cmake/Qt6/qt.toolchain.cmake",
       "cacheVariables": {
         "CMAKE_SYSTEM_VERSION": "28",
