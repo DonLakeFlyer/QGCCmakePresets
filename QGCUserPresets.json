@@ -21,7 +21,10 @@
       "displayName": "Don: Mac Debug",
       "inherits": ["macOS-debug", "don-base"],
       "binaryDir": "${sourceDir}/build/don-mac-debug",
-      "toolchainFile": "/Users/don/Qt/6.11.1/macos/lib/cmake/Qt6/qt.toolchain.cmake"
+      "toolchainFile": "/Users/don/Qt/6.11.1/macos/lib/cmake/Qt6/qt.toolchain.cmake",
+      "cacheVariables": {
+        "QGC_BUILD_TESTING": "ON"
+      }
     },
     {
       "name": "don-mac-release",
@@ -47,7 +50,8 @@
       "binaryDir": "${sourceDir}/build/don-linux-debug",
       "toolchainFile": "$env{HOME}/Qt/6.11.1/gcc_arm64/lib/cmake/Qt6/qt.toolchain.cmake",
       "cacheVariables": {
-        "QT_HOST_PATH": "$env{HOME}/Qt/6.11.1/gcc_arm64"
+        "QT_HOST_PATH": "$env{HOME}/Qt/6.11.1/gcc_arm64",
+        "QGC_BUILD_TESTING": "ON"
       }
     },
     {
@@ -67,6 +71,7 @@
       "binaryDir": "${sourceDir}/build/don-android-debug",
       "toolchainFile": "/Users/don/Qt/6.11.1/android_arm64_v8a/lib/cmake/Qt6/qt.toolchain.cmake",
       "cacheVariables": {
+        "QGC_BUILD_TESTING": "ON",
         "CMAKE_SYSTEM_VERSION": "28",
         "ANDROID_PLATFORM": "android-28",
         "ANDROID_NDK_ROOT": "/Users/don/Library/Android/sdk/ndk/27.2.12479018",
